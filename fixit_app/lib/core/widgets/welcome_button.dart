@@ -12,30 +12,32 @@ class WelcomeButton extends StatelessWidget {
     this.isPrimary = true,
   });
 
-  // Background color
+  // Background Color
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         backgroundColor: isPrimary ? const Color(0XFF386641) : Colors.white,
-        foregroundColor: isPrimary ? Colors.white : const Color(0XFF386641),
+        foregroundColor: isPrimary ? Colors.white : const Color(0XFF000000),
+        elevation: 3.5,
         padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 32.0),
 
         // Rounded Corner
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(6),
+          borderRadius: BorderRadius.circular(8),
           side: isPrimary
               ? BorderSide.none
-              : const BorderSide(color: Color(0xFF386641), width: 2),
+              : const BorderSide(color: Color(0XFF386641), width: 1.5),
         ),
       ),
+
       onPressed: onPressed,
       child: Text(
         text,
         style: TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.w400,
-          color: isPrimary ? Colors.white : const Color(0xFF386641),
+          fontSize: 18,
+          fontFamily: 'Inter',
+          fontWeight: FontWeight.w500,
         ),
       ),
     );

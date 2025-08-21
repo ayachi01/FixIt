@@ -55,6 +55,13 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  
+  flutter_launcher_icons: ^0.14.1
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/logo_mobile.png"
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -82,15 +89,19 @@ flutter:
     - family: Poppins
       fonts:
         - asset: assets/fonts/Poppins-Black.ttf
+        - asset: assets/fonts/Poppins-SemiBold.ttf
+          weight: 600
         - asset: assets/fonts/Poppins-Bold.ttf
           weight: 700
         - asset: assets/fonts/Poppins-MediumItalic.ttf
-          weight: 500
+          weight: 600
           style: italic
 
     - family: Inter
       fonts:
         - asset: assets/fonts/Inter_24pt-Light.ttf
+        - asset: assets/fonts/Inter_24pt-Medium.ttf
+          weight: 500
 
     - family: KantumruyPro
       fonts:

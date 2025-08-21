@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class SignupForm extends StatefulWidget {
-  const SignupForm({super.key});
+class ForgotPasswordScreen extends StatefulWidget {
+  const ForgotPasswordScreen({super.key});
 
   @override
-  State <SignupForm> createState() => _SignUpFormState();
+  State <ForgotPasswordScreen> createState() => _ForgotPasswordScreenState();
 }
  
 
-class _SignUpFormState extends State<SignupForm> {
+class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   @override
   Widget build(BuildContext context) {
   return Scaffold(
@@ -18,7 +18,7 @@ class _SignUpFormState extends State<SignupForm> {
       Column(
         children: [
           Text(
-            "Sign Up"
+            "Forgot Password"
             )
           ],
         )

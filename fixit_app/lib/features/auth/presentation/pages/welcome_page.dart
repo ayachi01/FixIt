@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '/core/widgets/welcome_button.dart';
+import '/features/auth/presentation/pages/login_form.dart';
+import '/features/auth/presentation/pages/signup_form.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
@@ -50,6 +52,7 @@ class WelcomePage extends StatelessWidget {
 
                 const SizedBox(height: 20),
 
+                //Subtitle
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20.0),
                   child: Text(
@@ -57,7 +60,7 @@ class WelcomePage extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontFamily: 'PlusJakartaSans',
-                      fontWeight: FontWeight.w400,
+                      fontWeight: FontWeight.w500,
                       fontSize: 18,
                       color: Colors.black,
                     ),
@@ -76,26 +79,41 @@ class WelcomePage extends StatelessWidget {
                 children: [
                   // Login Button
                   SizedBox(
-                    width: 380,
+                    width: double.infinity,
                     height: 56,
                     child: WelcomeButton(
                       text: "Login",
-                    isPrimary: false,
-                    onPressed: () => Navigator.pushNamed(context, '/login'),
+                      isPrimary: false,
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => LoginForm(),
+                          ),
+                        );
+                      },
+                    ),
                   ),
-                ),
-                const SizedBox(height: 20),
 
-                // Sign Up Button
-                SizedBox(
-                  width: 380,
-                  height: 56,
-                  child: WelcomeButton(
-                    text: "Sign Up",
-                    isPrimary: true,
-                    onPressed: () => Navigator.pushNamed(context, '/sign_up'),
+                  const SizedBox(height: 20),
+
+                  // Sign Up Button
+                  SizedBox(
+                    width: double.infinity,
+                    height: 56,
+                    child: WelcomeButton(
+                      text: "Sign Up",
+                      isPrimary: true,
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SignupForm(),
+                          ),
+                        );
+                      },
+                    ),
                   ),
-                )
                 ],
               ),
             ),
