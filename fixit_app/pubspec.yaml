@@ -107,6 +107,8 @@ flutter:
       fonts:
         - asset: assets/fonts/KantumruyPro-SemiBold.ttf
           weight: 600
+        - asset: assets/fonts/KantumruyPro-Bold.ttf
+          weight: 700
 
     - family: PlusJakartaSans
       fonts:
