@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '/core/widgets/welcome_button.dart';
-import '/features/auth/presentation/pages/homepage.dart';
+import '/features/auth/presentation/pages/verify_email.dart';
 import '/core/theme/input_decoration.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
@@ -61,8 +61,8 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                   "Please enter the email address associated with your account.",
                   style: TextStyle(
                     fontSize: 16,
-                    fontFamily: 'Poppins-Black',
-                    fontWeight: FontWeight.w500,
+                    fontFamily: 'Poppins-SemiBold',
+                    fontWeight: FontWeight.w600,
                     color: Color(0XFFB0B0B0),
                   ),
                   textAlign: TextAlign.center,
@@ -114,7 +114,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const HomePage(),
+                            builder: (context) => const VerifyEmail(),
                           ),
                         );
                       }
