@@ -10,15 +10,24 @@ class AuthRemoteDataSource {
   Future<Map<String, dynamic>> registerUser(
     String email,
     String password,
+    String firstname,
+    String lastname,
+    String role,
   ) async {
     final url = Uri.parse(
-      "${ApiConstants.baseUrlDevice}users/register_self_service/",
+      "${ApiConstants.baseUrlDevice}auth/register",
     );
 
     final response = await client.post(
       url,
       headers: {"Content-Type": "application/json"},
-      body: json.encode({"email": email, "password": password}),
+      body: json.encode({
+        "email": email, 
+        "password": password
+        "firstname": firstname,
+        "lastname": lastname,
+        "role": role,
+        }),
     );
 
     if (response.statusCode == 200 || response.statusCode == 201) {

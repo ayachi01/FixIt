@@ -1,4 +1,7 @@
 import 'package:fixit/features/auth/data/models/auth_view_model.dart';
+import '/features/auth/domain/repositories/auth_repository.dart';
+import '/features/auth/domain/usecases/register_user.dart';
+import 'package:fixit/features/auth/domain/usecases/verify_otp.dart';
 import 'package:flutter/material.dart';
 import '/features/dashboard/presentation/pages/homepage.dart';
 import '/features/auth/presentation/pages/login_form.dart';
@@ -6,6 +9,8 @@ import '/core/widgets/welcome_button.dart';
 import '/core/theme/input_decoration.dart';
 import '/core/constants/api_constant.dart';
 import 'package:http/http.dart' as http;
+import '/features/auth/domain/repositories/auth_repository_impl.dart';
+import '/features/auth/data/datasources/auth_remote_data_source.dart';
 
 class SignupForm extends StatefulWidget {
   const SignupForm({super.key});
@@ -27,6 +32,23 @@ class SignupFormState extends State<SignupForm> {
 
   String? dropDownValue;
   bool obscurePassword = true;
+
+  late final AuthViewModel viewModel;
+
+  @override
+  void initState() {
+    super.initState();
+
+    // Dependency Chain
+    final httpClient = http.Client();
+    final remoteDataSource = AuthRemoteDataSource(httpClient);
+    final authRepository = AuthRepositoryImpl(remoteDataSource);
+
+    viewModel = AuthViewModel(
+      registerUserUseCase: RegisterUser(authRepository),
+      verifyOtpUseCase: VerifyOtp(authRepository),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -308,17 +330,23 @@ class SignupFormState extends State<SignupForm> {
                   isPrimary: true,
                   onPressed: () async {
                     if (_signUpFormKey.currentState!.validate()) {
-                      final viewModel = AuthViewModel();
-
                       try {
-                        await viewModel.register(
-                          firstNameController.text.trim(),
-                          lastNameController.text.trim(),
-                          emailController.text.trim(),
-                          passwordController.text.trim(),
-                          dropDownValue ?? "", // role
+                        final registrationData = RegistrationData(
+                          firstName: firstNameController.text.trim(),
+                          lastName: lastNameController.text.trim(),
+                          email: emailController.text.trim(),
+                          password: passwordController.text.trim(),
+                          role: dropDownValue ?? "",
                         );
 
+                        await viewModel.register(
+                          emailController.text.trim(),
+                          passwordController.text.trim(),
+
+                          firstNameController.text.trim(),
+                          lastNameController.text.trim(),
+                          dropDownValue ?? "",
+                        );
                         Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -334,11 +362,11 @@ class SignupFormState extends State<SignupForm> {
                           SnackBar(content: Text("Registration failed: $e")),
                         );
                       }
+                      ;
                     }
                   },
                 ),
               ),
-
               const SizedBox(height: 40),
 
               // Already have an account
@@ -380,4 +408,30 @@ class SignupFormState extends State<SignupForm> {
       ),
     );
   }
+
+  @override
+  void dispose() {
+    firstNameController.dispose();
+    lastNameController.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+    confirmPasswordController.dispose();
+    super.dispose();
+  }
+}
+
+class RegistrationData {
+  final String firstName;
+  final String lastName;
+  final String email;
+  final String password;
+  final String role;
+
+  RegistrationData({
+    required this.firstName,
+    required this.lastName,
+    required this.email,
+    required this.password,
+    required this.role,
+  });
 }

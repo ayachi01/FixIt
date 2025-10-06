@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '/features/auth/presentation/pages/homepage.dart';
-import '/features/auth/presentation/pages/login_form.dart';
-import '/core/widgets/welcome_button.dart';
-import '/core/theme/input_decoration.dart';
+import 'package:fixit/features/auth/presentation/pages/homepage.dart';
+import 'package:fixit/features/auth/presentation/pages/login_form.dart';
+import 'package:fixit/core/widgets/welcome_button.dart';
+import 'package:fixit/core/theme/input_decoration.dart';
 
 class SignupForm extends StatefulWidget {
   const SignupForm({super.key});
@@ -39,8 +39,7 @@ class _SignupFormState extends State<SignupForm> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: const [
                   Center(
-
-                     // Title
+                    // Title
                     child: Text(
                       "Create your account",
                       style: TextStyle(
@@ -173,13 +172,10 @@ class _SignupFormState extends State<SignupForm> {
                 controller: passwordController,
                 obscureText: obscurePassword,
                 decoration: inputDecoration("Enter your password").copyWith(
-
                   // Toggle Password Visibility Icon
                   suffixIcon: IconButton(
                     icon: Icon(
-                      obscurePassword
-                          ? Icons.visibility_off
-                          : Icons.visibility,
+                      obscurePassword ? Icons.visibility_off : Icons.visibility,
                       color: Colors.grey,
                     ),
                     onPressed: () {
@@ -217,13 +213,10 @@ class _SignupFormState extends State<SignupForm> {
                 controller: confirmPasswordController,
                 obscureText: obscurePassword,
                 decoration: inputDecoration("Confirm your password").copyWith(
-
                   // Toggle Password Visibility Icon
                   suffixIcon: IconButton(
                     icon: Icon(
-                      obscurePassword
-                          ? Icons.visibility_off
-                          : Icons.visibility,
+                      obscurePassword ? Icons.visibility_off : Icons.visibility,
                       color: Colors.grey,
                     ),
                     onPressed: () {
@@ -262,7 +255,7 @@ class _SignupFormState extends State<SignupForm> {
 
               // User Selection Role
               DropdownButtonFormField<String>(
-                value: dropDownValue,
+                initialValue: dropDownValue,
                 hint: const Text('I am a...'),
                 onChanged: (String? newValue) {
                   setState(() {
@@ -329,10 +322,7 @@ class _SignupFormState extends State<SignupForm> {
                 children: [
                   const Text(
                     "Already have an account?",
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontFamily: 'Inter',
-                    ),
+                    style: TextStyle(fontSize: 18, fontFamily: 'Inter'),
                   ),
 
                   const SizedBox(width: 6),

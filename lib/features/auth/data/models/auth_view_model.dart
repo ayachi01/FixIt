@@ -13,12 +13,25 @@ class AuthViewModel extends ChangeNotifier {
     required this.registerUserUseCase,
     required this.verifyOtpUseCase,
   });
-  Future<void> register(String email, String password) async {
+
+  Future<void> register(
+    String email,
+    String password,
+    String firstname,
+    String lastname,
+    String role,
+  ) async {
     isloading = true;
     notifyListeners();
 
     try {
-      await registerUserUseCase(email, password);
+      await registerUserUseCase.call(
+        email,
+        password,
+        firstname,
+        lastname,
+        role,
+      );
     } catch (e) {
       errorMessage = e.toString();
     }
