@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '/core/widgets/welcome_button.dart';
-import '/core/theme/input_decoration.dart';
+import 'package:fixit/core/widgets/welcome_button.dart';
+import 'package:fixit/core/theme/input_decoration.dart';
 
 class CreatePassword extends StatefulWidget {
   const CreatePassword({super.key});

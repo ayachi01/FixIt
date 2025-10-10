@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '/core/widgets/welcome_button.dart';
-import '/features/auth/presentation/pages/verify_email.dart';
-import '/core/theme/input_decoration.dart';
+import 'package:fixit/core/widgets/welcome_button.dart';
+import 'package:fixit/features/auth/presentation/pages/verify_email.dart';
+import 'package:fixit/core/theme/input_decoration.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
   const ForgotPasswordScreen({super.key});

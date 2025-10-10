@@ -1,5 +1,7 @@
+import 'package:fixit/features/auth/domain/repositories/auth_repository_impl.dart';
+import 'package:fixit/features/dashboard/presentation/pages/homepage.dart';
 import 'package:flutter/material.dart';
-import 'package:fixit/features/auth/presentation/pages/homepage.dart';
+
 import 'package:fixit/features/auth/presentation/pages/login_form.dart';
 import 'package:fixit/core/widgets/welcome_button.dart';
 import 'package:fixit/core/theme/input_decoration.dart';
@@ -301,8 +303,22 @@ class _SignupFormState extends State<SignupForm> {
                 child: WelcomeButton(
                   text: "Sign Up",
                   isPrimary: true,
-                  onPressed: () {
+                  onPressed: () async {
                     if (_signUpFormKey.currentState!.validate()) {
+                      final registerUser = RegisterUser(
+                        AuthRepositoryImpl(remoteDataSource),
+                      );
+                      try {
+                        final result  = await registerUser(
+                          email: emailController.text,
+                          password: passwordController.text,
+                          firstname: firstNameController.text,
+                          lastname: lastNameController.text,
+                          role: dropDownValue ?? '',
+                        );
+                        print("Registration result: $result");
+                        if (result.containsKey('message') && result['message'] == )
+                      }
                       Navigator.push(
                         context,
                         MaterialPageRoute(

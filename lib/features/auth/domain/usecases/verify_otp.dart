@@ -1,4 +1,4 @@
-import 'package:fixit/features/auth/data/repositories/auth_repository.dart';
+import 'package:fixit/features/auth/domain/repositories/auth_repository.dart';
 
 class VerifyOtp {
   final AuthRepository repository;

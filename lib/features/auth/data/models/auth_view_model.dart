@@ -26,11 +26,13 @@ class AuthViewModel extends ChangeNotifier {
 
     try {
       await registerUserUseCase.call(
-        email,
-        password,
-        firstname,
-        lastname,
-        role,
+        email: email,
+        password: password,
+        firstname: firstname,
+        lastname: lastname,
+        role: role,
+        confirmPassword: password,
+      
       );
     } catch (e) {
       errorMessage = e.toString();

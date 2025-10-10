@@ -339,10 +339,11 @@ class SignupFormState extends State<SignupForm> {
                           role: dropDownValue ?? "",
                         );
 
+                        
                         await viewModel.register(
                           emailController.text.trim(),
                           passwordController.text.trim(),
-
+                          
                           firstNameController.text.trim(),
                           lastNameController.text.trim(),
                           dropDownValue ?? "",

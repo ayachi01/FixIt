@@ -1,9 +1,10 @@
+import 'package:fixit/features/dashboard/presentation/pages/homepage.dart';
 import 'package:flutter/material.dart';
-import '/features/auth/presentation/pages/forgot_password.dart';
-import '/features/auth/presentation/pages/homepage.dart';
-import '/features/auth/presentation/pages/signup_form.dart';
-import '/core/widgets/welcome_button.dart';
-import '/core/theme/input_decoration.dart';
+import 'package:fixit/features/auth/presentation/pages/forgot_password.dart';
+
+import 'package:fixit/features/auth/presentation/pages/signup_form.dart';
+import 'package:fixit/core/widgets/welcome_button.dart';
+import 'package:fixit/core/theme/input_decoration.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});

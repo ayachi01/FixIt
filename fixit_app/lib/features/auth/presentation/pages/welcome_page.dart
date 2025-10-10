@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '/core/widgets/welcome_button.dart';
-import '/features/auth/presentation/pages/login_form.dart';
-import '/features/auth/presentation/pages/signup_form.dart';
+import 'package:fixit/core/widgets/welcome_button.dart';
+import 'package:fixit/features/auth/presentation/pages/login_form.dart';
+import 'package:fixit/features/auth/presentation/pages/signup_form.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
@@ -73,7 +73,10 @@ class WelcomePage extends StatelessWidget {
 
             // Buttons
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 40),
+              padding: const EdgeInsets.symmetric(
+                horizontal: 20.0,
+                vertical: 40,
+              ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -87,9 +90,7 @@ class WelcomePage extends StatelessWidget {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(
-                            builder: (context) => LoginForm(),
-                          ),
+                          MaterialPageRoute(builder: (context) => LoginForm()),
                         );
                       },
                     ),
@@ -107,9 +108,7 @@ class WelcomePage extends StatelessWidget {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(
-                            builder: (context) => SignupForm(),
-                          ),
+                          MaterialPageRoute(builder: (context) => SignupForm()),
                         );
                       },
                     ),

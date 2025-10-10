@@ -7,25 +7,24 @@ class AuthRepositoryImpl implements AuthRepository {
   AuthRepositoryImpl(this.remoteDataSource);
 
   @override
-  Future<void> registerUser(String email, String password) async {
-    return await remoteDataSource.registerUser(email, password);
+  Future<Map<String, dynamic>> registerUser(
+    String email,
+    String password,
+    String firstname,
+    String lastname,
+    String role,
+  ) async {
+    return await remoteDataSource.registerUser(
+      email,
+      password,
+      firstname,
+      lastname,
+      role,
+    );
   }
 
   @override
   Future<void> verifyOtp(String email, String otp) async {
     return await remoteDataSource.verifyOtp(email, otp);
-  }
-
-  @override
-  void initState() {
-    super.initState();
-
-    final remoteDataSource = AuthRemoteDataSource();
-    final authRepository = AuthRepositoryImpl(remoteDataSource);
-
-    viewModel = AuthVieModel(
-      registerUserUseCase: RegisterUser(authRepository),
-      verifyOtpUseCase: VerifyOtp(authRepository),
-    );
   }
 }

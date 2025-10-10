@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '/core/theme/input_decoration.dart';
-import '/core/widgets/welcome_button.dart';
-import '/features/auth/presentation/pages/create_password.dart';
+import 'package:fixit/core/theme/input_decoration.dart';
+import 'package:fixit/core/widgets/welcome_button.dart';
+import 'package:fixit/features/auth/presentation/pages/create_password.dart';
 
 class VerifyEmail extends StatefulWidget {
   const VerifyEmail({super.key});
